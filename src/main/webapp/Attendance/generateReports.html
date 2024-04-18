@@ -30,6 +30,22 @@
             text-align: center;
         }
         
+        .button-container1{
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            width:100;        
+        }
+        
+        .button-container1 button{
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            width:100vh
+        }
+        
         .button {
             padding: 10px 20px;
             background-color: #4CAF50;
@@ -45,12 +61,13 @@
         }
 
         .name-input {
-            width: 100%;
-            padding: 8px;
+            width: 64%;
+			padding: 10px 20px;
             margin-bottom: 10px;
             border-radius: 4px;
             border: 1px solid #ccc;
             box-sizing: border-box;
+            margin-right: 10px;
         }
        
         .button:hover {
@@ -65,14 +82,13 @@
         <div class="button-container">
             <a href="attendanceSummaryReport.html" class="button">Attendance Summary Report</a>
             <form action="employeeAttendanceReport.jsp" method="post">
-	            <div class="button-container">
+	            <div class="button-container1">
 	                <input type="text" class="name-input" placeholder="Enter Employee Name" name="employeeName" required>
-	                <button type="submit" class="button">Employee Attendance Report</button>
+	                <button type="submit" class="button" style="width: 60%">Employee Attendance Report</button>
 	            </div>
             </form>
             <a href="#" class="button">Attendance Trends Report</a>
             <a href="#" class="button">Exception Report</a>
-            <a href="#" class="button">Overtime Report</a>
         </div>
     </div>
 </body>

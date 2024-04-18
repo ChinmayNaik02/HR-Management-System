@@ -88,7 +88,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Attendance Summary Reports</h1>
+        <h1>Employee Attendance Reports</h1>
             <form action="dailyReport.jsp" method="post" class="form-group">
                 <div class="button-container1">
                 	<input type="hidden" name="employeeName" value="<%= request.getParameter("employeeName") %>">

@@ -63,9 +63,9 @@
             <tbody>
                 <% 
                 // Database connection parameters
-                String DB_URL = "jdbc:mysql://localhost:3306/emp_management_sys?useSSL=false";
+                String DB_URL = "jdbc:mysql://localhost:3306/employee?useSSL=false";
                 String DB_USER = "root";
-                String DB_PASSWORD = "Justin@040804";
+                String DB_PASSWORD = "@VKcentury100";
 
                 Connection conn = null;
                 PreparedStatement pstmt = null;
@@ -90,7 +90,7 @@
                     }
 
                     // Fetch employees enrolled for the event
-                    String queryEnrolledEmployees = "SELECT e.employee_id, u.username FROM employee_enrollment e INNER JOIN employees u ON e.employee_id = u.id WHERE e.event_id = ?";
+                    String queryEnrolledEmployees = "SELECT e.employee_id, u.FullName FROM employee_enrollment e INNER JOIN employee u ON e.employee_id = u.EmployeeID WHERE e.event_id = ?";
                     pstmt = conn.prepareStatement(queryEnrolledEmployees);
                     pstmt.setInt(1, eventId);
                     rs = pstmt.executeQuery();
@@ -98,7 +98,7 @@
                     // Display enrolled employees in table rows
                     while (rs.next()) {
                         int employeeId = rs.getInt("employee_id");
-                        String employeeName = rs.getString("username");
+                        String employeeName = rs.getString("FullName");
                 %>
                 <tr>
                     <td><%= employeeId %></td>

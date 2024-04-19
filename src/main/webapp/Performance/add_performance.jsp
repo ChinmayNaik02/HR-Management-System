@@ -5,25 +5,25 @@
     String employeeName = request.getParameter("employeeName");
 
     // Database connection parameters
-    String DB_URL = "jdbc:mysql://localhost:3306/emp_management_sys?useSSL=false";
+    String DB_URL = "jdbc:mysql://localhost:3306/employee?useSSL=false";
     String DB_USER = "root";
-    String DB_PASSWORD = "Justin@040804";
+    String DB_PASSWORD = "@VKcentury100";
 
     int employeeId = -1;
 
     try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
         // Search for employee ID using employee name
-        String query = "SELECT id FROM employees WHERE username = ?";
+        String query = "SELECT EmployeeID FROM employee WHERE FullName = ?";
         PreparedStatement pstmt = conn.prepareStatement(query);
         pstmt.setString(1, employeeName);
         ResultSet rs = pstmt.executeQuery();
 
         if (rs.next()) {
             // Employee found, get the employee ID
-            employeeId = rs.getInt("id");
+            employeeId = rs.getInt("EmployeeID");
         }
 
         pstmt.close();

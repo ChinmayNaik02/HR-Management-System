@@ -68,20 +68,59 @@
     </style>
 </head>
 <body>
+	<% 
+                    // Database connection parameters
+                    String DB_URL = "jdbc:mysql://localhost:3306/employee?useSSL=false";
+                    String DB_USER = "root";
+                    String DB_PASSWORD = "@VKcentury100";
+                    int id  = Integer.parseInt(request.getParameter("employeeId"));
+                    
+                    double baseSalary = 0;
+                    double overtimePay = 0;
+                    double bonus = 0;
+                    double totalSalary;
+
+                    try {
+                        // Create a database connection
+                        Class.forName("com.mysql.jdbc.Driver");
+                        Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+
+                        // Query to retrieve payroll details
+                        String query = "SELECT * FROM payroll WHERE employee_id = ?";
+                        PreparedStatement pstmt = conn.prepareStatement(query);
+                        pstmt.setInt(1, id);
+                        ResultSet rs = pstmt.executeQuery();
+
+                        // Loop through each payroll record and display in table rows
+                        if (rs.next()) {
+                            int employeeId = rs.getInt("employee_id");
+                            baseSalary = rs.getDouble("base_salary");
+                            overtimePay = rs.getDouble("overtime_pay");
+                            bonus = rs.getDouble("bonus");
+                        }
+                        // Close resources
+                        rs.close();
+                        pstmt.close();
+                        conn.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        // Handle database connection or query errors
+                    }
+                %>
     <div class="container">
         <h2>Edit Payroll</h2>
         <form action="save_edit_payroll.jsp" method="post">
             <div class="form-group">
                 <label for="baseSalary">Base Salary:</label>
-                <input type="number" id="baseSalary" name="baseSalary" value="<%= request.getParameter("baseSalary") %>" required>
+                <input type="number" id="baseSalary" name="baseSalary" value="<%= baseSalary%>" required>
             </div>
             <div class="form-group">
                 <label for="overtimePay">Overtime Pay:</label>
-                <input type="number" id="overtimePay" name="overtimePay" value="<%= request.getParameter("overtimePay") %>" required>
+                <input type="number" id="overtimePay" name="overtimePay" value="<%= overtimePay %>" required>
             </div>
             <div class="form-group">
                 <label for="bonus">Bonus:</label>
-                <input type="number" id="bonus" name="bonus" value="<%= request.getParameter("bonus") %>" required>
+                <input type="number" id="bonus" name="bonus" value="<%= bonus %>" required>
             </div>
             <input type="hidden" name="employeeId" value="<%= request.getParameter("employeeId") %>">
             <input type="submit" value="Save Changes" class="button">

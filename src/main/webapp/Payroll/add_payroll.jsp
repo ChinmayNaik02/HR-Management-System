@@ -66,28 +66,31 @@ input[type="submit"]:hover {
         <h2>Add Payroll Information</h2>
         <%
             // Database connection parameters
-            String DB_URL = "jdbc:mysql://localhost:3306/emp_management_sys?useSSL=false";
+            String DB_URL = "jdbc:mysql://localhost:3306/employee?useSSL=false";
             String DB_USER = "root";
-            String DB_PASSWORD = "Justin@040804";
+            String DB_PASSWORD = "@VKcentury100";
 
             // Initialize variable
             int employeeId = -1;
+            double salary = 0;
 
             try {
                 // Create a database connection
-                Class.forName("com.mysql.cj.jdbc.Driver");
+                Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
                 // Query to retrieve employee ID based on name
-                String query = "SELECT id FROM employees WHERE username = ?";
+                String query = "SELECT EmployeeID, Salary FROM employee WHERE FullName = ?";
                 PreparedStatement pstmt = conn.prepareStatement(query);
                 pstmt.setString(1, request.getParameter("employeeName"));
                 ResultSet rs = pstmt.executeQuery();
 
                 // Retrieve employee ID if found
                 if (rs.next()) {
-                    employeeId = rs.getInt("id");
+                    employeeId = rs.getInt("EmployeeID");
+                    salary = rs.getDouble("Salary");
                 }
+                
 
                 // Close resources
                 rs.close();
@@ -102,7 +105,7 @@ input[type="submit"]:hover {
             <input type="hidden" name="employeeId" value="<%= employeeId %>">
             <div class="form-group">
                 <label for="baseSalary">Base Salary:</label>
-                <input type="number" id="baseSalary" name="baseSalary" required>
+                <input type="number" id="baseSalary" name="baseSalary" required value="<%= salary%>">
             </div>
             <div class="form-group">
                 <label for="overtimePay">Overtime Pay:</label>

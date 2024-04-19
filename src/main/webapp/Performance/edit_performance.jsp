@@ -8,9 +8,9 @@
     int qualityOfWork = -1, punctuality = -1, reliability = -1, communication = -1;
     
     // Database connection parameters
-    String DB_URL = "jdbc:mysql://localhost:3306/emp_management_sys?useSSL=false";
+    String DB_URL = "jdbc:mysql://localhost:3306/employee?useSSL=false";
     String DB_USER = "root";
-    String DB_PASSWORD = "Justin@040804";
+    String DB_PASSWORD = "@VKcentury100";
 
     try {
         // Create a database connection
@@ -27,7 +27,7 @@
             qualityOfWork = rs.getInt("quality_of_work");
             punctuality = rs.getInt("punctuality");
             reliability = rs.getInt("reliability");
-            communication = rs.getInt("communication");
+            communication = rs.getInt("comunication");
         }
 
         // Close resources

@@ -85,13 +85,13 @@
             <tbody>
                 <% 
                     // Database connection parameters
-                    String DB_URL = "jdbc:mysql://localhost:3306/emp_management_sys?useSSL=false";
+                    String DB_URL = "jdbc:mysql://localhost:3306/employee?useSSL=false";
                     String DB_USER = "root";
-                    String DB_PASSWORD = "Justin@040804";
+                    String DB_PASSWORD = "@VKcentury100";
 
                     try {
                         // Create a database connection
-                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Class.forName("com.mysql.jdbc.Driver");
                         Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
                         // Query to retrieve payroll details

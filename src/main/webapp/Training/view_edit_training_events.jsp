@@ -79,9 +79,9 @@
             <tbody>
                 <% 
                 // Database connection parameters
-                String DB_URL = "jdbc:mysql://localhost:3306/emp_management_sys?useSSL=false";
+                String DB_URL = "jdbc:mysql://localhost:3306/employee?useSSL=false";
                 String DB_USER = "root";
-                String DB_PASSWORD = "Justin@040804";
+                String DB_PASSWORD = "@VKcentury100";
 
                 Connection conn = null;
                 PreparedStatement pstmt = null;

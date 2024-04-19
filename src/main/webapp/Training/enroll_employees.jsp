@@ -68,9 +68,9 @@
                 <option value="">Select an Employee</option>
                 <% 
                 // Database connection parameters
-                String DB_URL = "jdbc:mysql://localhost:3306/emp_management_sys?useSSL=false";
+                String DB_URL = "jdbc:mysql://localhost:3306/employee?useSSL=false";
                 String DB_USER = "root";
-                String DB_PASSWORD = "Justin@040804";
+                String DB_PASSWORD = "@VKcentury100";
 
                 Connection conn = null;
                 PreparedStatement pstmt = null;
@@ -82,13 +82,13 @@
                     conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
                     // Retrieve employee names from the database
-                    String query = "SELECT username FROM employees";
+                    String query = "SELECT FullName FROM employee";
                     pstmt = conn.prepareStatement(query);
                     rs = pstmt.executeQuery();
 
                     // Iterate through the employee names and populate the dropdown menu
                     while (rs.next()) {
-                        String employeeName = rs.getString("username");
+                        String employeeName = rs.getString("FullName");
                 %>
                 <option value="<%=employeeName %>"><%=employeeName %></option>
                 <% 

@@ -9,17 +9,17 @@
     int communication = Integer.parseInt(request.getParameter("communication"));
 
     // Database connection parameters
-    String DB_URL = "jdbc:mysql://localhost:3306/emp_management_sys?useSSL=false";
+    String DB_URL = "jdbc:mysql://localhost:3306/employee?useSSL=false";
     String DB_USER = "root";
-    String DB_PASSWORD = "Justin@040804";
+    String DB_PASSWORD = "@VKcentury100";
 
     try {
         // Create a database connection
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
         // Update employee performance data in the database
-        String query = "UPDATE employee_performance SET quality_of_work=?, punctuality=?, reliability=?, communication=? WHERE employee_id=?";
+        String query = "UPDATE employee_performance SET quality_of_work=?, punctuality=?, reliability=?, comunication=? WHERE employee_id=?";
         PreparedStatement pstmt = conn.prepareStatement(query);
         pstmt.setInt(1, qualityOfWork);
         pstmt.setInt(2, punctuality);

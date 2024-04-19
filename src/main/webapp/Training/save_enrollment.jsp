@@ -12,27 +12,27 @@
     String eventId = request.getParameter("eventId");
 
     // Database connection parameters
-    String DB_URL = "jdbc:mysql://localhost:3306/emp_management_sys?useSSL=false";
+    String DB_URL = "jdbc:mysql://localhost:3306/employee?useSSL=false";
     String DB_USER = "root";
-    String DB_PASSWORD = "Justin@040804";
+    String DB_PASSWORD = "@VKcentury100";
 
     Connection conn = null;
     PreparedStatement pstmt = null;
 
     try {
         // Create a database connection
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
         // Retrieve the employee_id based on the employee_name
-        String query = "SELECT id FROM employees WHERE username = ?";
+        String query = "SELECT EmployeeID FROM employee WHERE FullName = ?";
         pstmt = conn.prepareStatement(query);
         pstmt.setString(1, employeeName);
         ResultSet rs = pstmt.executeQuery();
 
         // Check if the employee exists
         if (rs.next()) {
-            int employeeId = rs.getInt("id");
+            int employeeId = rs.getInt("EmployeeID");
 
             // Insert a record into the employee_enrollment table
             query = "INSERT INTO employee_enrollment (employee_id, event_id) VALUES (?, ?)";

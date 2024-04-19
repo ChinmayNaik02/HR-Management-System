@@ -10,16 +10,16 @@
     double performance = (qualityOfWork + punctuality + reliability + communication) / 4.0;
 
     // Database connection parameters
-    String DB_URL = "jdbc:mysql://localhost:3306/emp_management_sys?useSSL=false";
+    String DB_URL = "jdbc:mysql://localhost:3306/employee?useSSL=false";
     String DB_USER = "root";
-    String DB_PASSWORD = "Justin@040804";
+    String DB_PASSWORD = "@VKcentury100";
 
     try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
         // Insert performance details into the database
-        String query = "INSERT INTO employee_performance (employee_id, quality_of_work, punctuality, reliability, communication, performance) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO employee_performance (employee_id, quality_of_work, punctuality, reliability, comunication, performance) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement pstmt = conn.prepareStatement(query);
         pstmt.setInt(1, employeeId);
         pstmt.setInt(2, qualityOfWork);

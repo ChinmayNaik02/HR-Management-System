@@ -47,7 +47,8 @@
             font-size: 16px;
             transition: background-color 0.3s;
             margin-right: 10px;
-            display: inline-block;
+            display: flex;
+            align-items: centre;
         }
         
         .button:hover {
@@ -56,6 +57,8 @@
         .form-buttons{
             display: flex;     
         	flex-direction: row;
+        	align-items: center;
+        	justify-content:center;
         }
     </style>
 </head>
@@ -97,12 +100,8 @@
                     out.println("<input type='hidden' name='employeeID' value='" + rs.getInt("EmployeeID") + "'>");
                     out.println("<button type='submit' class='button'>Edit Employee</button>");
                     out.println("</form>");
-                    
-                    out.println("<form action='deleteEmployee.jsp' method='POST'>");
-                    out.println("<input type='hidden' name='employeeID' value='" + rs.getInt("EmployeeID") + "'>");
-                    out.println("<button type='submit' class='button'>Delete Employee</button>");
-                    out.println("</form>");
                     out.println("</div>");
+                    
 
                 } else {
                 	

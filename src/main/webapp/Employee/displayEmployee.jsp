@@ -69,7 +69,7 @@ tr:nth-child(even) {
                     <th>Email</th>
                     <th>Department</th>
                     <th>Job Title</th>
-                    <th>Salary</th>
+                    <th>Base Salary</th>
                 </tr>
             </thead>
             <tbody>

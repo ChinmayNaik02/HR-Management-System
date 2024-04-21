@@ -52,7 +52,7 @@
         input[type="submit"] {
             width: 100%;
             padding: 10px;
-            background-color: #007700;
+            background-color: #4CAF50;
             color: #fff;
             border: none;
             border-radius: 4px;
@@ -61,7 +61,7 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #005500;
+            background-color: #45a049;
         }
     </style>
 </head>

@@ -16,11 +16,10 @@
     String DB_PASSWORD = "@VKcentury100";
 
     try {
-        // Create a database connection
+
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
-        // Update payroll information in the database
         String query = "UPDATE payroll SET base_salary = ?, overtime_pay = ?, bonus = ?, total_salary = ? WHERE employee_id = ?";
         PreparedStatement pstmt = conn.prepareStatement(query);
         pstmt.setDouble(1, baseSalary);
@@ -29,15 +28,21 @@
         pstmt.setDouble(4, totalSalary);
         pstmt.setInt(5, employeeId);
         pstmt.executeUpdate();
+        pstmt.close();
 
-        // Close resources
+        Connection conn2 = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+        query = "UPDATE employee SET Salary = ? WHERE EmployeeID = ?";
+        pstmt = conn2.prepareStatement(query);
+        pstmt.setDouble(1, baseSalary);
+        pstmt.setInt(2, employeeId);
+        pstmt.executeUpdate();
+        conn2.commit();
         pstmt.close();
         conn.close();
-
-        // Redirect to payroll.html after saving data
+        conn2.close();
+        
         response.sendRedirect("payroll.html");
     } catch (SQLException e) {
         e.printStackTrace();
-        // Handle database connection or query errors
     }
 %>

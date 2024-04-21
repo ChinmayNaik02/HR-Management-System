@@ -21,7 +21,6 @@
 .container {
     text-align: center;
     padding: 20px;
-    border: 2px solid #007700;
     border-radius: 8px;
     background-color: #fff;
 }
@@ -46,7 +45,7 @@ input[type="number"] {
 }
 
 input[type="submit"] {
-    background-color: #007700;
+    background-color: #4CAF50;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -56,7 +55,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #005500;
+    background-color: #45a049;
 }
 
     </style>

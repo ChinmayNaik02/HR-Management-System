@@ -13,7 +13,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 20px auto;
             background-color: #fff;
             padding: 20px;
@@ -38,7 +38,7 @@
         }
 
         th {
-            background-color: #007700;
+            background-color: #4CAF50;
             color: #fff;
             text-align: left;
         }
@@ -48,7 +48,7 @@
         }
 
         .button {
-            background-color: #007700;
+            background-color: #4CAF50;
             color: white;
             padding: 6px 10px;
             border: none;
@@ -59,7 +59,7 @@
         }
 
         .button:hover {
-            background-color: #005500;
+            background-color: #45a049;
         }
     </style>
 </head>

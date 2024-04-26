@@ -88,7 +88,7 @@
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>
-        <p class="footer">Don't have an account? <a href="#">Sign up</a></p>
+        <p class="footer">Don't have an account? <a href="signUp.jsp">Sign up</a></p>
     </div>
 </body>
 </html>
